@@ -1,0 +1,90 @@
+{
+  "model_version": "EduPulse-Dynamic-v2",
+  "training_scale": 5.0,
+  "training_records": 1841,
+  "training_snapshots": 5523,
+  "features": [
+    "programme",
+    "latest_gpa_norm",
+    "mean_gpa_norm",
+    "current_cgpa_norm",
+    "min_gpa_norm",
+    "max_gpa_norm",
+    "trend_norm",
+    "volatility_norm",
+    "change_norm",
+    "progress_ratio"
+  ],
+  "target_definition": "Classifier predicts whether the known future final CGPA belongs to the lowest quartile of historical final outcomes. Regression predicts future final CGPA. A separate regression model predicts the next academic checkpoint GPA.",
+  "low_performance_cutoff_normalized": 0.6201754385964919,
+  "selected_classifier": "Logistic Regression",
+  "classifier_results": {
+    "Logistic Regression": {
+      "accuracy": 0.8825654923215899,
+      "precision": 0.742603550295858,
+      "recall": 0.8537414965986394,
+      "f1": 0.7943037974683544,
+      "roc_auc": 0.9476240680774155,
+      "threshold": 0.6544965297576093
+    },
+    "Random Forest": {
+      "accuracy": 0.8897922312556459,
+      "precision": 0.8138686131386861,
+      "recall": 0.7585034013605442,
+      "f1": 0.7852112676056338,
+      "roc_auc": 0.9476826400917071,
+      "threshold": 0.7088888769976678
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.8943089430894309,
+      "precision": 0.8365019011406845,
+      "recall": 0.7482993197278912,
+      "f1": 0.7899461400359067,
+      "roc_auc": 0.949655261858741,
+      "threshold": 0.5124154830573884
+    }
+  },
+  "selected_final_regressor": "Gradient Boosting Regressor",
+  "final_regression_results": {
+    "Random Forest Regressor": {
+      "mae": 0.042346188822200995,
+      "rmse": 0.05854482786205514,
+      "r2": 0.8162100788762512
+    },
+    "Gradient Boosting Regressor": {
+      "mae": 0.041704940391676604,
+      "rmse": 0.057111310848413324,
+      "r2": 0.8251003737352691
+    }
+  },
+  "next_gpa_results": {
+    "Random Forest Regressor": {
+      "mae": 0.0784688053153843,
+      "rmse": 0.09884761568172157,
+      "r2": 0.63434361564977
+    },
+    "Gradient Boosting Regressor": {
+      "mae": 0.0774413346530446,
+      "rmse": 0.09662621328681364,
+      "r2": 0.6505937374392057
+    }
+  },
+  "selected_probability_threshold": 0.6544965297576093,
+  "risk_band_cutoffs": {
+    "moderate": 0.2320075706232347,
+    "high": 0.7475660541849449,
+    "critical": 0.9667811547950085
+  },
+  "feature_medians": {
+    "latest_gpa_norm": 0.710204081632653,
+    "mean_gpa_norm": 0.7317948717948718,
+    "current_cgpa_norm": 0.7317948717948718,
+    "min_gpa_norm": 0.6863636363636363,
+    "max_gpa_norm": 0.7872340425531915,
+    "trend_norm": -0.00527289546715999,
+    "volatility_norm": 0.03247282608695651,
+    "change_norm": -0.007995495495495497,
+    "progress_ratio": 0.5
+  },
+  "important_note": "The source dataset contains level-level GPA checkpoints. The operational app accepts semester GPA histories and normalises them to the institution's 4.0 or 5.0 scale. For production adoption, retrain this model on the target institution's semester-level records."
+}

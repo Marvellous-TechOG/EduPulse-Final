@@ -1,0 +1,6 @@
+edu_app/
+__pycache__/
+*.pyc
+.env
+.streamlit/secrets.toml
+data/edupulse.db

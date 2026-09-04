@@ -1,0 +1,4 @@
+matric_no,student_name,programme,level,session,semester,semester_gpa,credit_units,failed_courses,attendance_rate
+CSC/2026/001,Amina Bello,Computer Science,200,2026/2027,First,3.62,20,0,88
+CSC/2026/002,Daniel Eze,Computer Science,300,2026/2027,First,2.14,19,2,67
+CSC/2026/003,Mary Adewale,Software Engineering,500,2026/2027,First,4.41,18,0,94
